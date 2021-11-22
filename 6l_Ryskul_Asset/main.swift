@@ -111,9 +111,7 @@ queue.add(bird2)
 print(queue) // возвращает Queue<Flight>(elements: [_l_Ryskul_Asset.Plane, _l_Ryskul_Asset.Plane, _l_Ryskul_Asset.FlightBird, _l_Ryskul_Asset.FlightBird])
 
 // Сортируем по высоте полета с помощью замыкания sort
-queue.elements.sort { flight1, flight2 in
-    return flight1.maxFlightHeight > flight2.maxFlightHeight
-}
+queue.elements.sort { $0.maxFlightHeight > $1.maxFlightHeight }
 
 // выводим на печать результат сортировки
 for element in queue.elements {
@@ -121,9 +119,7 @@ for element in queue.elements {
 }
 
 // переводим массы из килограммов в фунты
-var weights_in_pounds = queue.elements.map { flight -> Double in
-    return flight.weight * 2.2
-}
+var weights_in_pounds = queue.elements.map { $0.weight * 2.2 }
 
 // выводим на печать результат отображения
 print(weights_in_pounds)
